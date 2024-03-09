@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 
-export default function QuestionTimer({ timeout, onTimeout  }: any) {
+export default function QuestionTimer({ timeout, onTimeout }: any) {
     const [remainingTime, setRemainingTime] = useState(timeout);
 
     useEffect(() => {
         setTimeout(onTimeout(), timeout);
     }, [timeout, onTimeout])
-    
+
     useEffect(() => {
-        setInterval(() => {
+        const interval = setInterval(() => {
             setRemainingTime((prev: number) => prev - 100)
         }, 100)
+        return () => {
+            clearInterval(interval);
+        }
     }, [])
 
     return (
