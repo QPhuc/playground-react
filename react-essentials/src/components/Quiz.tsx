@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import QUESTIONS from '../../questions';
 import quizCompleteImg from '../assets/quiz-complete.png';
@@ -15,6 +15,11 @@ export default function Quiz() {
       return [...prev, selectedAnswer]
     });
   }
+
+  const handleSkipAnswer = useCallback(
+    () => {
+
+    }, [])
 
   if (quizIsComplete) {
     return <div id="summary">
