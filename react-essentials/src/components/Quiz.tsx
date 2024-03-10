@@ -12,6 +12,7 @@ export default function Quiz() {
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   const handleSelectAnswer = useCallback((selectedAnswer: string | null) => {
+    setAnswerState('answered');
     setUserAnswers((prev: string[]) => {
       return [...prev, selectedAnswer]
     });
