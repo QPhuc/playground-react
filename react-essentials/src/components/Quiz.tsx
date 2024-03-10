@@ -18,7 +18,11 @@ export default function Quiz() {
     });
 
     setTimeout(() => {
-      
+      if (selectedAnswer === QUESTIONS[activeQuestionIndex].answers[0]) {
+        setAnswerState('correct');
+      } else {
+        setAnswerState('wrong')
+      }
     }, 1000);
   }, []) 
 
