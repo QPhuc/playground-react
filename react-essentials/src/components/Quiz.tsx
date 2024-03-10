@@ -8,7 +8,7 @@ export default function Quiz() {
   const [answerState, setAnswerState] = useState(""); 
   const [userAnswers, setUserAnswers] = useState<any>([]);
 
-  const activeQuestionIndex: number = userAnswers.length;
+  const activeQuestionIndex: number = answerState == '' ? userAnswers.length : userAnswers.length - 1;
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   const handleSelectAnswer = useCallback((selectedAnswer: string | null) => {
@@ -23,6 +23,7 @@ export default function Quiz() {
       } else {
         setAnswerState('wrong')
       }
+
     }, 1000);
   }, []) 
 
