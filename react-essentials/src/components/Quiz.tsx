@@ -16,6 +16,10 @@ export default function Quiz() {
     setUserAnswers((prev: string[]) => {
       return [...prev, selectedAnswer]
     });
+
+    setTimeout(() => {
+      
+    }, 1000);
   }, []) 
 
   const handleSkipAnswer = useCallback(() => handleSelectAnswer(null), [])
