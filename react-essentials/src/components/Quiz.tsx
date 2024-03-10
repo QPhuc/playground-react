@@ -5,6 +5,7 @@ import quizCompleteImg from '../assets/quiz-complete.png';
 import QuestionTimer from './QuestionTimer';
 
 export default function Quiz() {
+  const [answerState, setAnswerState] = useState(""); 
   const [userAnswers, setUserAnswers] = useState<any>([]);
 
   const activeQuestionIndex: number = userAnswers.length;
