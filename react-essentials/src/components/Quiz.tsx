@@ -7,7 +7,7 @@ import QuestionTimer from './QuestionTimer';
 export default function Quiz() {
   const [userAnswers, setUserAnswers] = useState<any>([]);
 
-  const activeQuestionIndex = userAnswers.length;
+  const activeQuestionIndex: number = userAnswers.length;
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   const handleSelectAnswer = useCallback((selectedAnswer: string | null) => {
@@ -16,7 +16,7 @@ export default function Quiz() {
     });
   }, []) 
 
-  const handleSkipAnswer = useCallback(() => handleSelectAnswer(null), [handleSelectAnswer])
+  const handleSkipAnswer = useCallback(() => handleSelectAnswer(null), [])
   
   if (quizIsComplete) {
     return <div id="summary">
@@ -31,8 +31,12 @@ export default function Quiz() {
   return (
     <div id='quiz'>
       <div id='question'>
-        <QuestionTimer timeout={10000} onTimeout={handleSkipAnswer } />
-        <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
+        <QuestionTimer
+          key={activeQuestionIndex}
+          timeout={10000}
+          onTimeout={handleSkipAnswer}
+        />
+        <h2>{activeQuestionIndex && QUESTIONS[activeQuestionIndex]?.text}</h2>
         <ul id='answers'>
           {shuffledAnswer.map((answer, index) => (
             <li key={index} className='answer'>
