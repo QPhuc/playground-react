@@ -24,6 +24,9 @@ export default function Quiz() {
         setAnswerState('wrong')
       }
 
+      setTimeout(() => {
+        setAnswerState('')
+      }, 20000);
     }, 1000);
   }, []) 
 
@@ -49,11 +52,12 @@ export default function Quiz() {
         />
         <h2>{activeQuestionIndex && QUESTIONS[activeQuestionIndex]?.text}</h2>
         <ul id='answers'>
-          {shuffledAnswer.map((answer, index) => (
-            <li key={index} className='answer'>
+          {shuffledAnswer.map((answer, index) => {
+            return <li key={index} className='answer'>
               <button onClick={() => handleSelectAnswer(answer)}>{answer}</button>
             </li>
-          ))}
+          })
+        }
         </ul>
       </div>
     </div>
