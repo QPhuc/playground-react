@@ -58,6 +58,7 @@ export default function Quiz() {
         <Answers
           answers={QUESTIONS[activeQuestionIndex].answers}
           selectedAnswer={userAnswers[userAnswers.length - 1]}
+          answerState={answerState}
         />
       </div>
     </div>
