@@ -40,7 +40,7 @@ export default function Quiz() {
   }
   
   const shuffledAnswer = [...QUESTIONS[activeQuestionIndex].answers];
-  shuffledAnswer.sort((a, b) => Math.random() - 0.5);
+  shuffledAnswer.sort(() => Math.random() - 0.5);
 
   return (
     <div id='quiz'>
