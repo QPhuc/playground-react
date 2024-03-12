@@ -3,6 +3,7 @@ import React, { useCallback, useRef, useState } from 'react'
 import QUESTIONS from '../../questions';
 import quizCompleteImg from '../assets/quiz-complete.png';
 import QuestionTimer from './QuestionTimer';
+import Answers from './Answers';
 
 export default function Quiz() {
   const shuffledAnswers = useRef<string[]>();
@@ -54,7 +55,7 @@ export default function Quiz() {
           onTimeout={handleSkipAnswer}
         />
         <h2>{activeQuestionIndex && QUESTIONS[activeQuestionIndex]?.text}</h2>
-        
+        <Answers answers={QUESTIONS[activeQuestionIndex].answers} />
       </div>
     </div>
   )
