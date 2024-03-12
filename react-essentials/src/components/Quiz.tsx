@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import QUESTIONS from '../../questions';
 import quizCompleteImg from '../assets/quiz-complete.png';
@@ -6,7 +6,6 @@ import QuestionTimer from './QuestionTimer';
 import Answers from './Answers';
 
 export default function Quiz() {
-  const shuffledAnswers = useRef<string[]>();
   const [answerState, setAnswerState] = useState(""); 
   const [userAnswers, setUserAnswers] = useState<any>([]);
 
@@ -39,11 +38,6 @@ export default function Quiz() {
       <img src={quizCompleteImg} alt='Trophy icon' />
       <h2>Quiz Completed!</h2>
     </div>
-  }
-  
-  if (!shuffledAnswers.current) {
-    shuffledAnswers.current = [...QUESTIONS[activeQuestionIndex].answers];
-    shuffledAnswers.current.sort(() => Math.random() - 0.5);
   }
 
   return (
