@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Answers({ansers, selectedAnser, answerState}: any) {
+export default function Answers({answers, selectedAnswer, answerState}: any) {
   return (
       <ul id='answers'>
           {shuffledAnswers.current.map((answer, index) => {
