@@ -55,7 +55,10 @@ export default function Quiz() {
           onTimeout={handleSkipAnswer}
         />
         <h2>{activeQuestionIndex && QUESTIONS[activeQuestionIndex]?.text}</h2>
-        <Answers answers={QUESTIONS[activeQuestionIndex].answers} />
+        <Answers
+          answers={QUESTIONS[activeQuestionIndex].answers}
+          selectedAnswer={userAnswers[userAnswers.length - 1]}
+        />
       </div>
     </div>
   )
