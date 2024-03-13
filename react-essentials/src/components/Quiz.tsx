@@ -2,8 +2,6 @@ import React, { useCallback, useState } from 'react'
 
 import QUESTIONS from '../../questions';
 import quizCompleteImg from '../assets/quiz-complete.png';
-import QuestionTimer from './QuestionTimer';
-import Answers from './Answers';
 import Question from './Question';
 
 export default function Quiz() {
@@ -43,7 +41,14 @@ export default function Quiz() {
 
   return (
     <div id='quiz'>
-      <Question />
+      <Question
+        questionText={QUESTIONS[activeQuestionIndex]?.text}
+        answers={QUESTIONS[activeQuestionIndex].answers}
+        onSelectAnswer={handleSelectAnswer}
+        selectedAnswer={userAnswers[userAnswers.length - 1]}
+        answerState={answerState}
+        onSkipAnswer={handleSkipAnswer}
+      />
     </div>
   )
 } 
