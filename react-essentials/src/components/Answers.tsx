@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 
-export default function Answers({ answers, selectedAnswer, answerState }: any) {
+export default function Answers({ answers, selectedAnswer, answerState, onSelect }: any) {
     const shuffledAnswers = useRef<string[]>();
      if (!shuffledAnswers.current) {
-        shuffledAnswers.current = [...QUESTIONS[activeQuestionIndex].answers];
+         shuffledAnswers.current = [...answers ];
         shuffledAnswers.current.sort(() => Math.random() - 0.5);
     }
   return (
@@ -21,7 +21,7 @@ export default function Answers({ answers, selectedAnswer, answerState }: any) {
 
               return <li key={index} className='answer'>
                   <button
-                      onClick={() => handleSelectAnswer(answer)}
+                      onClick={() => onSelect(answer)}
                       className={cssClasses}
                   >{answer}
                   </button>

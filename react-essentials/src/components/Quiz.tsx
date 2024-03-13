@@ -42,19 +42,7 @@ export default function Quiz() {
 
   return (
     <div id='quiz'>
-      <div id='question'>
-        <QuestionTimer
-          key={activeQuestionIndex}
-          timeout={10000}
-          onTimeout={handleSkipAnswer}
-        />
-        <h2>{activeQuestionIndex && QUESTIONS[activeQuestionIndex]?.text}</h2>
-        <Answers
-          answers={QUESTIONS[activeQuestionIndex].answers}
-          selectedAnswer={userAnswers[userAnswers.length - 1]}
-          answerState={answerState}
-        />
-      </div>
+      
     </div>
   )
 } 
